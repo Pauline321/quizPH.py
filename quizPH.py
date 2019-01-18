@@ -1,16 +1,39 @@
+
 # quiz.py by Pauline Harrell
-# Question 1 - Correct Answer is (1)
 
+#Defining a function
+#ID and name all var.s the function needs to run.
+#question string
 
-#initialize variables
-           
+def run_quest(quest,check,ansU,ansR):
+  #
+  #loop check varible          correct option
+
+  # ask/answer quest
+  print(quest)
+  while check == False:
+  try:
+        ansU =int(input(" choose the answer you think is correct. "))
+        if ansU == ansR:
+           print("Thanks") #acceptable answer
+           score = int(score+1)
+           check = True
+        elif 0 < ansU < 1: #acceptble answer
+           print( "Thanks") 
+           check = True
+        else: 
+           print(" Your choice needs to be between 1 and 4.") #unacceptable answer
+  except ValueError:
+           print("Your answer has to be a whole number")
+
+#initialize variables          
 #question 1
 q1 = """what is 3 + 3?
 1) 6
 2) 9
 3) 5
 4) 0
-"""
+"""  
 a1 = int (0)
 check1 = bool(False)
 score = int(0)
@@ -26,25 +49,7 @@ a2 = int (0)
 check2 = bool(False)
 score = int(0)
 
-# ask/answer Q1
-print(q1)
-while check1 == False:
-  try:
-        a1 =int(input(" choose the answer you think is correct. "))
-        if a1 == 1:
-           print("Thanks") #acceptable answer
-           score = int(score+1)
-           check1 = True
-           
-        elif 0 < a1 < 1: #acceptble answer
-           print( "Thanks") 
-           check1 = True
-        else: 
-           print(" Your choice needs to be between 1 and 4.") #unacceptable answer
-  except ValueError:
-           print("Your answer has to be a whole number")
-
-# ask/answer Q2
+# ask/answer q2
 print(q2)
 while check2 == False:
   try:
@@ -60,10 +65,14 @@ while check2 == False:
         else: 
            print(" Your choice needs to be between 1 and 4.") #unacceptable answer
   except ValueError:
-           print("Your answer has to be a whole number")           
+           print("Your answer has to be a whole number")
+           
+#"Call" function for each question
+#Question 1-2
+run_quest(q1,check1,a1, )
+run_quest(q2,check2,a2, )
 
-        
-
+   
 #score
 print("quiz score: " , score* 50, "%")
                  
